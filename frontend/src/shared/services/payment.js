@@ -5,7 +5,7 @@ import { orderService } from "../../modules/order/services/order-service";
 export const payWithRazorPay = (email, name, total, address, closeModal) => {
   var options = {
     "key": "rzp_test_xQJcS49E6NLbJj", // Enter the Key ID generated from the Dashboard
-    "amount": total * 100, // Amount is in currency subunits (convert to paise)
+    "amount": parseInt(total * 100), // Amount is in currency subunits (convert to paise)
     "currency": "INR",
     "name": "Domino's", // Your business name
     "description": "Test Transaction",
