@@ -4,6 +4,7 @@ from pymongo import MongoClient
 from bson import ObjectId
 from collections import Counter
 import datetime
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -118,4 +119,5 @@ def get_top_recommendations_route():
     return jsonify(top_recommendations)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Default to port 5000 if PORT is not set
+    app.run(host='1.1.1.1', port=port, debug=True)
