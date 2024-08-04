@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: pizza-recommendation-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    instanceType: free
+    envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://root:root@cluster0.d2wlybb.mongodb.net/
