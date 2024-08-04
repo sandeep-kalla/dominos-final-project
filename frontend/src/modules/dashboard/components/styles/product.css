@@ -1,0 +1,96 @@
+/* styles/product.css */
+.product-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 15px; /* Space around each card */
+  overflow: hidden; /* Ensure rounded corners work */
+  transition: transform 0.2s; /* Smooth scaling effect */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Vertical layout */
+  max-width: 250px; /* Set a max width for cards */
+  width: 100%; /* Ensure cards take full width */
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+.product-image-container {
+  width: 100%; /* Full width of the card */
+  height: 200px; /* Fixed height for the image container */
+  overflow: hidden; /* Hide any overflow */
+  background-color: #f1f1f1; /* Light gray background for empty space */
+  display: flex; /* Use flexbox to center the image */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.product-image {
+  width: auto; /* Allow width to adjust */
+  height: 100%; /* Full height of the container */
+  object-fit: cover; /* Ensure the entire image fits within the container */
+  transition: transform 0.2s; /* Smooth scaling effect */
+}
+
+.product-details {
+  padding: 15px; /* Space inside the card */
+  text-align: left; /* Left align text */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Vertical layout */
+}
+
+.product-title {
+  font-size: 18px; /* Title font size */
+  font-weight: bold; /* Bold title */
+  color: #333; /* Dark color for title */
+  margin: 10px 0; /* Space above and below */
+}
+
+.product-price {
+  font-size: 16px; /* Price font size */
+  color: #007bff; /* Blue color for price */
+  margin: 5px 0; /* Space above and below */
+}
+
+.product-description {
+  font-size: 14px; /* Description font size */
+  color: #666; /* Gray color for description */
+  margin: 10px 0; /* Space above and below */
+  flex-grow: 1; /* Allow description to take available space */
+}
+
+.add-to-cart-btn {
+  margin-top: 10px; /* Space above the button */
+}
+
+/* Responsive Styles */
+.products-container {
+  display: grid; /* Use CSS Grid for layout */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Responsive grid */
+  gap: 15px; /* Space between grid items */
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    max-width: 100%; /* Allow cards to take full width on small screens */
+    margin: 10px; /* Reduce margin for small screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .product-title {
+    font-size: 16px; /* Slightly smaller title font size */
+  }
+
+  .product-price {
+    font-size: 14px; /* Slightly smaller price font size */
+  }
+
+  .product-description {
+    font-size: 12px; /* Smaller description font size */
+  }
+}

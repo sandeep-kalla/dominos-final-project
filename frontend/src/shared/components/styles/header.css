@@ -1,0 +1,113 @@
+/* styles/header.css */
+.header {
+  width: 100%;
+  background-color: rgb(0, 120, 189);
+  height: 60px; /* Increased height for better touch targets */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem; /* Padding for better spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.signup-btn {
+  margin-left: 10px;
+  background-color: #ffffff;
+  color: rgb(0, 120, 189);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.signup-btn:hover {
+  background-color: #f2f2f2;
+  animation: pulse 0.5s ease-in-out;
+}
+
+.signup-btn:active {
+  transform: scale(0.9);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 30px; /* Increased size for better visibility */
+  height: 30px; /* Increased size for better visibility */
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.user-name {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Stack items vertically */
+    height: auto; /* Allow height to adjust */
+    padding: 10px; /* Adjust padding */
+    align-items: center; /* Center align items */
+  }
+
+  .logo {
+    margin-bottom: 10px; /* Space below the logo */
+  }
+
+  .signup-btn {
+    width: 100%; /* Full width on small screens */
+    margin: 5px 0; /* Margin for spacing */
+  }
+
+  .user-info {
+    flex-direction: row; /* Keep user info in a row */
+    align-items: center; /* Center align items vertically */
+    justify-content: center; /* Center align items horizontally */
+  }
+
+  .user-avatar {
+    width: 40px; /* Smaller avatar size */
+    height: 40px; /* Smaller avatar size */
+  }
+
+  .user-name {
+    font-size: 0.9rem; /* Smaller font size for user name */
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 5px; /* Reduced padding for very small screens */
+  }
+
+  .signup-btn {
+    padding: 8px; /* Adjust padding for smaller screens */
+    font-size: 0.9rem; /* Smaller font size */
+  }
+
+  .user-name {
+    font-size: 0.9rem; /* Even smaller font size */
+    padding: 0 10px;
+  }
+
+  .user-info {
+    justify-content: space-between; /* Center align user info */
+    width: 100%; /* Full width for better alignment */
+  }
+}

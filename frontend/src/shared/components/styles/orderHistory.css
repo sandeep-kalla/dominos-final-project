@@ -1,0 +1,106 @@
+/* styles/orderHistory.css */
+.order-history {
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  width: 350px;
+  max-height: 80%;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-button {
+  align-self: flex-end;
+  background-color: #ff5f5f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #e04d4d;
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.order-item {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-item p {
+  margin: 5px 0;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .order-history {
+    width: 90%;
+    max-height: 70%;
+    top: 15%;
+    left: 5%;
+    right: auto;
+  }
+
+  .order-item {
+    padding: 10px;
+  }
+
+  .order-item p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .order-history {
+    max-height: 60%;
+    top: 20%;
+  }
+
+  .close-button {
+    font-size: 14px;
+    padding: 3px 8px;
+  }
+
+  .order-item {
+    padding: 8px;
+  }
+
+  .order-item p {
+    font-size: 12px;
+  }
+
+  .error {
+    font-size: 14px;
+  }
+}
