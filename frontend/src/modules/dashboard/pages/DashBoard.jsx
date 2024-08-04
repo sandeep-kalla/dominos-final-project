@@ -119,7 +119,7 @@ export const DashBoard = () => {
       <Navbar onSearchResults={setSearchResults} onAddressRetrieved={setAddress} />
       <CartContext.Provider value={{ carts: carts, addCart: addCart, removeCart: removeCart }}>
         <div className='row'>
-          <div className='col-8'>
+          <div className=''>
             <div className='row'>
               {loading ? (
                 <Loading setLoading={setLoading} />
@@ -128,7 +128,7 @@ export const DashBoard = () => {
               )}
             </div>
           </div>
-          <div className='col-4'>
+          <div className=''>
             <CartView address={address} />
           </div>
         </div>
