@@ -1,7 +1,7 @@
 /* styles/navbar.css */
 .navbar {
   background-color: #fff;
-  width: 100%;
+  width: 100vw;
   padding: 10px 16px; /* Slightly more padding for better touch targets */
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
   display: flex;
