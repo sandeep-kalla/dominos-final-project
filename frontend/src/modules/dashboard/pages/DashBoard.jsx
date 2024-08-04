@@ -86,6 +86,14 @@ export const DashBoard = () => {
   toast.success('Pizza added to cart!');
 };
 
+const saveCartData = async (uid, cartItems) => {
+    try {
+      await axios.post(`${import.meta.env.VITE_BASE_URL}/carts/${uid}`, { cartItems });
+    } catch (error) {
+      console.error('Failed to save cart data:', error);
+    }
+  };
+
   const removeCart = async (productId) => {
     const existingItem = carts.find((item) => item.id === productId);
     const savedUser = JSON.parse(localStorage.getItem('user'));
