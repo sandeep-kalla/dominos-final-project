@@ -23,7 +23,12 @@ export const DashBoard = () => {
     const fetchData = async () => {
       await getProducts(); // Fetch products
       await fetchCartData(); // Fetch cart data
-      await fetchRecommendedProducts(); // Fetch recommendations on initial load
+      const savedUser = JSON.parse(localStorage.getItem('user')); // Check if user is logged in
+      if (savedUser && savedUser.uid) {
+        await fetchRecommendedProducts(savedUser.uid); // Fetch personalized recommendations
+      } else {
+        await fetchRecommendedProducts(); // Fetch general recommendations for non-logged-in users
+      }
     };
 
     fetchData();
@@ -49,6 +54,7 @@ export const DashBoard = () => {
       // Simulate a delay for the loading bar
       await new Promise(resolve => setTimeout(resolve, 1000)); // 1 second delay
       const data = await getApi();
+      console.log('Products ', data);
       setTimeout(() => {
         setProducts(data);
         setLoading(false);
