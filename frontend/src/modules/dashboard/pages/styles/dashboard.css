@@ -1,4 +1,27 @@
 /* styles/dashboard.css */
+.body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.section-title {
+  font-size: 24px; /* Larger font size for emphasis */
+  font-weight: bold; /* Bold text */
+  color: #007bff; /* Use your theme color */
+  margin: 20px 12px; /* Spacing above and below the heading */
+  text-align: left; /* Align text to the left */
+  position: relative; /* For adding an underline effect */
+}
+
+.section-title::after {
+  content: ""; /* Empty content for the underline */
+  display: block; /* Make it a block element */
+  width: 50px; /* Width of the underline */
+  height: 4px; /* Thickness of the underline */
+  background-color: #007bff; /* Match your theme color */
+  margin-top: 5px; /* Space between title and underline */
+}
+
 .carts-heading {
   background-color: #f5f5f5;
   padding: 10px;
