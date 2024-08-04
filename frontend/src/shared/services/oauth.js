@@ -16,7 +16,7 @@ export const OAuth = async () => {
   console.log(displayName);
   console.log(photoURL);
 
-  await axios.post('http://localhost:3000/saveUser', {
+  await axios.post(`${import.meta.env.VITE_BASE_URL}/saveUser`, {
     uid,
     displayName,
     photoURL
