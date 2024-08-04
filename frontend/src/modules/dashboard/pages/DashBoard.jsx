@@ -62,34 +62,29 @@ export const DashBoard = () => {
   };
 
   const addCart = async (product) => {
-    const existingItem = carts.find((item) => item.id === product.id);
-    const savedUser = JSON.parse(localStorage.getItem('user'));
-    let updatedCartItems;
+  const existingItem = carts.find((item) => item.id === product.id);
+  const savedUser = JSON.parse(localStorage.getItem('user'));
+  let updatedCartItems;
 
-    if (existingItem) {
-      updatedCartItems = carts.map((item) => {
-        if (item.id === product.id) {
-          const newPrice = (parseFloat(existingItem.price) + parseFloat(product.price)).toFixed(2);
-          return { ...item, quantity: item.quantity + 1, price: newPrice };
-        }
-        return item;
-      });
-    } else {
-      updatedCartItems = [...carts, { ...product, quantity: 1, price: product.price }];
-    }
+  if (existingItem) {
+    // If the item already exists in the cart, update its quantity
+    updatedCartItems = carts.map((item) => {
+      if (item.id === product.id) {
+        const newQuantity = item.quantity + 1; // Increment quantity
+        const newPrice = (parseFloat(item.basePrice) * newQuantity).toFixed(2); // Calculate new price based on base price
+        return { ...item, quantity: newQuantity, price: newPrice }; // Update item
+      }
+      return item; // Return unchanged item
+    });
+  } else {
+    // If the item does not exist, add it to the cart with quantity 1
+    updatedCartItems = [...carts, { ...product, quantity: 1, basePrice: product.price, price: product.price }];
+  }
 
-    setCarts(updatedCartItems);
-    await saveCartData(savedUser.uid, updatedCartItems); // Save updated cart data
-    toast.success('Pizza added to cart!');
-  };
-
-  const saveCartData = async (uid, cartItems) => {
-    try {
-      await axios.post(`${import.meta.env.VITE_BASE_URL}/carts/${uid}`, { cartItems });
-    } catch (error) {
-      console.error('Failed to save cart data:', error);
-    }
-  };
+  setCarts(updatedCartItems);
+  await saveCartData(savedUser.uid, updatedCartItems); // Save updated cart data
+  toast.success('Pizza added to cart!');
+};
 
   const removeCart = async (productId) => {
     const existingItem = carts.find((item) => item.id === productId);
